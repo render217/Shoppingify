@@ -2,7 +2,7 @@ import React from 'react'
 
 export const CartForm = () => {
     return (
-        <div>
+        <div className='mx-3'>
             <h2 className='text-3xl font-semibold '>Add a new item</h2>
             <form className='flex flex-col gap-5 min-h-[90vh] pt-6'>
                 <div className='flex flex-col'>

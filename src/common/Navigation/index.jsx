@@ -16,8 +16,9 @@ export const Navigation = ({ toggleCart }) => {
 
   return (
 
-    <nav>
-      <div className="h-screen pt-5 flex flex-col justify-center ">
+    <nav className='h-full'>
+      <div className=" h-full py-5 flex flex-col justify-center ">
+        
         <div className="px-2">
           <img src="./logo.svg" alt="" />
         </div>
@@ -45,7 +46,7 @@ export const Navigation = ({ toggleCart }) => {
           </div>
         </div>
 
-        <div className=" text-md relative pb-3">
+        <div className=" text-md relative ">
           <div onClick={toggleCart} className=" cursor-pointer rounded-full py-4 mx-2 my-2 bg-clrOrangePeel grid place-items-center">
             <div className="absolute bg-red-800 text-white rounded-full text-xs px-1 top-3 right-4">
               3

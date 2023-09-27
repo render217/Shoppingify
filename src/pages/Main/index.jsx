@@ -2,8 +2,9 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { useOutletContext } from 'react-router-dom';
+import { ProductItem } from './components/ProductItem';
 export const Main = () => {
-    
+
     return (
         <section >
             <header className='py-5 px-10'>
@@ -21,57 +22,266 @@ export const Main = () => {
                 </div>
             </header>
             <main>
-                <p>here goes list</p>
-                <p>here goes list</p>
-                <p>here goes list</p>
-                <p>here goes list</p>
-                <p>here goes list</p>
-                <p>here goes list</p>
-                <p>here goes list</p>
-                <p>here goes list</p>
-                <p>here goes list</p>
-                <p>here goes list</p>
-                <p>here goes list</p>
-                <p>here goes list</p>
-                <p>here goes list</p>
-                <p>here goes list</p>
-                <p>here goes list</p>
-                <p>here goes list</p>
-                <p>here goes list</p>
-                <p>here goes list</p>
-                <p>here goes list</p>
-                <p>here goes list</p>
-                <p>here goes list</p>
-                <p>here goes list</p>
-                <p>here goes list</p>
-                <p>here goes list</p>
-                <p>here goes list</p>
-                <p>here goes list</p>
-                <p>here goes list</p>
-                <p>here goes list</p>
-                <p>here goes list</p>
-                <p>here goes list</p>
-                <p>here goes list</p>
-                <p>here goes list</p>
-                <p>here goes list</p>
-                <p>here goes list</p>
-                <p>here goes list</p>
-                <p>here goes list</p>
-                <p>here goes list</p>
-                <p>here goes list</p>
-                <p>here goes list</p>
-                <p>here goes list</p>
-                <p>here goes list</p>
-                <p>here goes list</p>
-                <p>here goes list</p>
-                <p>here goes list</p>
-                <p>here goes list</p>
-                <p>here goes list</p>
-                <p>here goes list</p>
-                <p>here goes list</p>
-                <p>here goes list</p>
-                <p>here goes list</p>
-                <p>here goes list</p>
+                <div className='mb-8'>
+                    <h2 className='text-lg font-semibold mb-4'>Fruit and vegetables</h2>
+                    <div className='flex max-md:justify-center gap-4 flex-wrap scroll-py-3'>
+                        <ProductItem />
+                        <ProductItem />
+                        <ProductItem />
+                        <ProductItem />
+                        <ProductItem />
+                        <ProductItem />
+                        <ProductItem />
+                        <ProductItem />
+                        <ProductItem />
+                        <ProductItem />
+                        <ProductItem />
+                        <ProductItem />
+                        <ProductItem />
+                        <ProductItem />
+                        <ProductItem />
+                    </div>
+                </div>
+
+                <div className='mb-8'>
+                    <h2 className='text-lg font-semibold mb-4'>Meat and Fish</h2>
+                    <div className='flex max-md:justify-center gap-4 flex-wrap scroll-py-3'>
+                        <ProductItem />
+                        <ProductItem />
+                        <ProductItem />
+                        <ProductItem />
+                        <ProductItem />
+                    </div>
+                </div>
+
+                <div className='mb-8'>
+                    <h2 className='text-lg font-semibold mb-4'>Meat and Fish</h2>
+                    <div className='flex max-md:justify-center gap-4 flex-wrap scroll-py-3'>
+                        <ProductItem />
+                        <ProductItem />
+                        <ProductItem />
+                        <ProductItem />
+                        <ProductItem />
+                    </div>
+                </div>
+
+                <div className='mb-8'>
+                    <h2 className='text-lg font-semibold mb-4'>Meat and Fish</h2>
+                    <div className='flex  max-md:justify-center gap-4 flex-wrap scroll-py-3'>
+                        <ProductItem />
+                        <ProductItem />
+                        <ProductItem />
+                        <ProductItem />
+                        <ProductItem />
+                    </div>
+                </div>
+
+                <div className='mb-8'>
+                    <h2 className='text-lg font-semibold mb-4'>Meat and Fish</h2>
+                    <div className='flex max-md:justify-center gap-4 flex-wrap scroll-py-3'>
+                        <ProductItem />
+                        <ProductItem />
+                        <ProductItem />
+                        <ProductItem />
+                        <ProductItem />
+                    </div>
+                </div>
+
+                <div className='mb-8'>
+                    <h2 className='text-lg font-semibold mb-4'>Meat and Fish</h2>
+                    <div className='flex max-md:justify-center gap-4 flex-wrap scroll-py-3'>
+                        <ProductItem />
+                        <ProductItem />
+                        <ProductItem />
+                        <ProductItem />
+                        <ProductItem />
+                    </div>
+                </div>
+
+                <div className='mb-8'>
+                    <h2 className='text-lg font-semibold mb-4'>Meat and Fish</h2>
+                    <div className='flex max-md:justify-center gap-4 flex-wrap scroll-py-3'>
+                        <ProductItem />
+                        <ProductItem />
+                        <ProductItem />
+                        <ProductItem />
+                        <ProductItem />
+                    </div>
+                </div>
+
+                <div className='mb-8'>
+                    <h2 className='text-lg font-semibold mb-4'>Fruit and vegetables</h2>
+                    <div className='flex max-md:justify-center gap-4 flex-wrap scroll-py-3'>
+                        <ProductItem />
+                        <ProductItem />
+                        <ProductItem />
+                        <ProductItem />
+                        <ProductItem />
+                        <ProductItem />
+                        <ProductItem />
+                        <ProductItem />
+                        <ProductItem />
+                        <ProductItem />
+                        <ProductItem />
+                        <ProductItem />
+                        <ProductItem />
+                        <ProductItem />
+                        <ProductItem />
+                    </div>
+                </div>
+
+                <div className='mb-8'>
+                    <h2 className='text-lg font-semibold mb-4'>Meat and Fish</h2>
+                    <div className='flex max-md:justify-center gap-4 flex-wrap scroll-py-3'>
+                        <ProductItem />
+                        <ProductItem />
+                        <ProductItem />
+                        <ProductItem />
+                        <ProductItem />
+                    </div>
+                </div>
+
+                <div className='mb-8'>
+                    <h2 className='text-lg font-semibold mb-4'>Meat and Fish</h2>
+                    <div className='flex max-md:justify-center gap-4 flex-wrap scroll-py-3'>
+                        <ProductItem />
+                        <ProductItem />
+                        <ProductItem />
+                        <ProductItem />
+                        <ProductItem />
+                    </div>
+                </div>
+
+                <div className='mb-8'>
+                    <h2 className='text-lg font-semibold mb-4'>Meat and Fish</h2>
+                    <div className='flex max-md:justify-center gap-4 flex-wrap scroll-py-3'>
+                        <ProductItem />
+                        <ProductItem />
+                        <ProductItem />
+                        <ProductItem />
+                        <ProductItem />
+                    </div>
+                </div>
+
+                <div className='mb-8'>
+                    <h2 className='text-lg font-semibold mb-4'>Meat and Fish</h2>
+                    <div className='flex max-md:justify-center gap-4 flex-wrap scroll-py-3'>
+                        <ProductItem />
+                        <ProductItem />
+                        <ProductItem />
+                        <ProductItem />
+                        <ProductItem />
+                    </div>
+                </div>
+
+                <div className='mb-8'>
+                    <h2 className='text-lg font-semibold mb-4'>Meat and Fish</h2>
+                    <div className='flex max-md:justify-center gap-4 flex-wrap scroll-py-3'>
+                        <ProductItem />
+                        <ProductItem />
+                        <ProductItem />
+                        <ProductItem />
+                        <ProductItem />
+                    </div>
+                </div>
+
+                <div className='mb-8'>
+                    <h2 className='text-lg font-semibold mb-4'>Meat and Fish</h2>
+                    <div className='flex max-md:justify-center gap-4 flex-wrap scroll-py-3'>
+                        <ProductItem />
+                        <ProductItem />
+                        <ProductItem />
+                        <ProductItem />
+                        <ProductItem />
+                    </div>
+                </div>
+                
+                <div className='mb-8'>
+                    <h2 className='text-lg font-semibold mb-4'>Fruit and vegetables</h2>
+                    <div className='flex gap-4 flex-wrap scroll-py-3'>
+                        <ProductItem />
+                        <ProductItem />
+                        <ProductItem />
+                        <ProductItem />
+                        <ProductItem />
+                        <ProductItem />
+                        <ProductItem />
+                        <ProductItem />
+                        <ProductItem />
+                        <ProductItem />
+                        <ProductItem />
+                        <ProductItem />
+                        <ProductItem />
+                        <ProductItem />
+                        <ProductItem />
+                    </div>
+                </div>
+
+                <div className='mb-8'>
+                    <h2 className='text-lg font-semibold mb-4'>Meat and Fish</h2>
+                    <div className='flex gap-4 flex-wrap scroll-py-3'>
+                        <ProductItem />
+                        <ProductItem />
+                        <ProductItem />
+                        <ProductItem />
+                        <ProductItem />
+                    </div>
+                </div>
+
+                <div className='mb-8'>
+                    <h2 className='text-lg font-semibold mb-4'>Meat and Fish</h2>
+                    <div className='flex gap-4 flex-wrap scroll-py-3'>
+                        <ProductItem />
+                        <ProductItem />
+                        <ProductItem />
+                        <ProductItem />
+                        <ProductItem />
+                    </div>
+                </div>
+
+                <div className='mb-8'>
+                    <h2 className='text-lg font-semibold mb-4'>Meat and Fish</h2>
+                    <div className='flex gap-4 flex-wrap scroll-py-3'>
+                        <ProductItem />
+                        <ProductItem />
+                        <ProductItem />
+                        <ProductItem />
+                        <ProductItem />
+                    </div>
+                </div>
+
+                <div className='mb-8'>
+                    <h2 className='text-lg font-semibold mb-4'>Meat and Fish</h2>
+                    <div className='flex gap-4 flex-wrap scroll-py-3'>
+                        <ProductItem />
+                        <ProductItem />
+                        <ProductItem />
+                        <ProductItem />
+                        <ProductItem />
+                    </div>
+                </div>
+
+                <div className='mb-8'>
+                    <h2 className='text-lg font-semibold mb-4'>Meat and Fish</h2>
+                    <div className='flex gap-4 flex-wrap scroll-py-3'>
+                        <ProductItem />
+                        <ProductItem />
+                        <ProductItem />
+                        <ProductItem />
+                        <ProductItem />
+                    </div>
+                </div>
+
+                <div className='mb-8'>
+                    <h2 className='text-lg font-semibold mb-4'>Meat and Fish</h2>
+                    <div className='flex gap-4 flex-wrap scroll-py-3'>
+                        <ProductItem />
+                        <ProductItem />
+                        <ProductItem />
+                        <ProductItem />
+                        <ProductItem />
+                    </div>
+                </div>
             </main>
         </section>
     );
