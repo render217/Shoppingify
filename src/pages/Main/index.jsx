@@ -1,10 +1,27 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { useOutletContext } from 'react-router-dom';
 import { ProductItem } from './components/ProductItem';
+import { useDispatch, useSelector } from 'react-redux'
+import { getAllProducts, selectProductsData, selectProductsError, selectProductsStatus } from '../../store/features/productsSlice';
 export const Main = () => {
-
+    const dispatch = useDispatch();
+    const productsData = useSelector(selectProductsData)
+    const productsStatus = useSelector(selectProductsStatus)
+    const productsError = useSelector(selectProductsError)
+    useEffect(() => {
+        if (productsData.length === 0) {
+            dispatch(getAllProducts())
+        }
+    }, [])
+    if (productsStatus === 'loading') {
+        return <p>loading...</p>
+    }
+    if (productsStatus === 'failed') {
+        return <p>{productsError}</p>
+    }
+    console.log(productsData)
     return (
         <section >
             <header className='py-5 px-10'>
@@ -22,266 +39,18 @@ export const Main = () => {
                 </div>
             </header>
             <main>
-                <div className='mb-8'>
-                    <h2 className='text-lg font-semibold mb-4'>Fruit and vegetables</h2>
-                    <div className='flex max-md:justify-center gap-4 flex-wrap scroll-py-3'>
-                        <ProductItem />
-                        <ProductItem />
-                        <ProductItem />
-                        <ProductItem />
-                        <ProductItem />
-                        <ProductItem />
-                        <ProductItem />
-                        <ProductItem />
-                        <ProductItem />
-                        <ProductItem />
-                        <ProductItem />
-                        <ProductItem />
-                        <ProductItem />
-                        <ProductItem />
-                        <ProductItem />
-                    </div>
-                </div>
-
-                <div className='mb-8'>
-                    <h2 className='text-lg font-semibold mb-4'>Meat and Fish</h2>
-                    <div className='flex max-md:justify-center gap-4 flex-wrap scroll-py-3'>
-                        <ProductItem />
-                        <ProductItem />
-                        <ProductItem />
-                        <ProductItem />
-                        <ProductItem />
-                    </div>
-                </div>
-
-                <div className='mb-8'>
-                    <h2 className='text-lg font-semibold mb-4'>Meat and Fish</h2>
-                    <div className='flex max-md:justify-center gap-4 flex-wrap scroll-py-3'>
-                        <ProductItem />
-                        <ProductItem />
-                        <ProductItem />
-                        <ProductItem />
-                        <ProductItem />
-                    </div>
-                </div>
-
-                <div className='mb-8'>
-                    <h2 className='text-lg font-semibold mb-4'>Meat and Fish</h2>
-                    <div className='flex  max-md:justify-center gap-4 flex-wrap scroll-py-3'>
-                        <ProductItem />
-                        <ProductItem />
-                        <ProductItem />
-                        <ProductItem />
-                        <ProductItem />
-                    </div>
-                </div>
-
-                <div className='mb-8'>
-                    <h2 className='text-lg font-semibold mb-4'>Meat and Fish</h2>
-                    <div className='flex max-md:justify-center gap-4 flex-wrap scroll-py-3'>
-                        <ProductItem />
-                        <ProductItem />
-                        <ProductItem />
-                        <ProductItem />
-                        <ProductItem />
-                    </div>
-                </div>
-
-                <div className='mb-8'>
-                    <h2 className='text-lg font-semibold mb-4'>Meat and Fish</h2>
-                    <div className='flex max-md:justify-center gap-4 flex-wrap scroll-py-3'>
-                        <ProductItem />
-                        <ProductItem />
-                        <ProductItem />
-                        <ProductItem />
-                        <ProductItem />
-                    </div>
-                </div>
-
-                <div className='mb-8'>
-                    <h2 className='text-lg font-semibold mb-4'>Meat and Fish</h2>
-                    <div className='flex max-md:justify-center gap-4 flex-wrap scroll-py-3'>
-                        <ProductItem />
-                        <ProductItem />
-                        <ProductItem />
-                        <ProductItem />
-                        <ProductItem />
-                    </div>
-                </div>
-
-                <div className='mb-8'>
-                    <h2 className='text-lg font-semibold mb-4'>Fruit and vegetables</h2>
-                    <div className='flex max-md:justify-center gap-4 flex-wrap scroll-py-3'>
-                        <ProductItem />
-                        <ProductItem />
-                        <ProductItem />
-                        <ProductItem />
-                        <ProductItem />
-                        <ProductItem />
-                        <ProductItem />
-                        <ProductItem />
-                        <ProductItem />
-                        <ProductItem />
-                        <ProductItem />
-                        <ProductItem />
-                        <ProductItem />
-                        <ProductItem />
-                        <ProductItem />
-                    </div>
-                </div>
-
-                <div className='mb-8'>
-                    <h2 className='text-lg font-semibold mb-4'>Meat and Fish</h2>
-                    <div className='flex max-md:justify-center gap-4 flex-wrap scroll-py-3'>
-                        <ProductItem />
-                        <ProductItem />
-                        <ProductItem />
-                        <ProductItem />
-                        <ProductItem />
-                    </div>
-                </div>
-
-                <div className='mb-8'>
-                    <h2 className='text-lg font-semibold mb-4'>Meat and Fish</h2>
-                    <div className='flex max-md:justify-center gap-4 flex-wrap scroll-py-3'>
-                        <ProductItem />
-                        <ProductItem />
-                        <ProductItem />
-                        <ProductItem />
-                        <ProductItem />
-                    </div>
-                </div>
-
-                <div className='mb-8'>
-                    <h2 className='text-lg font-semibold mb-4'>Meat and Fish</h2>
-                    <div className='flex max-md:justify-center gap-4 flex-wrap scroll-py-3'>
-                        <ProductItem />
-                        <ProductItem />
-                        <ProductItem />
-                        <ProductItem />
-                        <ProductItem />
-                    </div>
-                </div>
-
-                <div className='mb-8'>
-                    <h2 className='text-lg font-semibold mb-4'>Meat and Fish</h2>
-                    <div className='flex max-md:justify-center gap-4 flex-wrap scroll-py-3'>
-                        <ProductItem />
-                        <ProductItem />
-                        <ProductItem />
-                        <ProductItem />
-                        <ProductItem />
-                    </div>
-                </div>
-
-                <div className='mb-8'>
-                    <h2 className='text-lg font-semibold mb-4'>Meat and Fish</h2>
-                    <div className='flex max-md:justify-center gap-4 flex-wrap scroll-py-3'>
-                        <ProductItem />
-                        <ProductItem />
-                        <ProductItem />
-                        <ProductItem />
-                        <ProductItem />
-                    </div>
-                </div>
-
-                <div className='mb-8'>
-                    <h2 className='text-lg font-semibold mb-4'>Meat and Fish</h2>
-                    <div className='flex max-md:justify-center gap-4 flex-wrap scroll-py-3'>
-                        <ProductItem />
-                        <ProductItem />
-                        <ProductItem />
-                        <ProductItem />
-                        <ProductItem />
-                    </div>
-                </div>
-                
-                <div className='mb-8'>
-                    <h2 className='text-lg font-semibold mb-4'>Fruit and vegetables</h2>
-                    <div className='flex gap-4 flex-wrap scroll-py-3'>
-                        <ProductItem />
-                        <ProductItem />
-                        <ProductItem />
-                        <ProductItem />
-                        <ProductItem />
-                        <ProductItem />
-                        <ProductItem />
-                        <ProductItem />
-                        <ProductItem />
-                        <ProductItem />
-                        <ProductItem />
-                        <ProductItem />
-                        <ProductItem />
-                        <ProductItem />
-                        <ProductItem />
-                    </div>
-                </div>
-
-                <div className='mb-8'>
-                    <h2 className='text-lg font-semibold mb-4'>Meat and Fish</h2>
-                    <div className='flex gap-4 flex-wrap scroll-py-3'>
-                        <ProductItem />
-                        <ProductItem />
-                        <ProductItem />
-                        <ProductItem />
-                        <ProductItem />
-                    </div>
-                </div>
-
-                <div className='mb-8'>
-                    <h2 className='text-lg font-semibold mb-4'>Meat and Fish</h2>
-                    <div className='flex gap-4 flex-wrap scroll-py-3'>
-                        <ProductItem />
-                        <ProductItem />
-                        <ProductItem />
-                        <ProductItem />
-                        <ProductItem />
-                    </div>
-                </div>
-
-                <div className='mb-8'>
-                    <h2 className='text-lg font-semibold mb-4'>Meat and Fish</h2>
-                    <div className='flex gap-4 flex-wrap scroll-py-3'>
-                        <ProductItem />
-                        <ProductItem />
-                        <ProductItem />
-                        <ProductItem />
-                        <ProductItem />
-                    </div>
-                </div>
-
-                <div className='mb-8'>
-                    <h2 className='text-lg font-semibold mb-4'>Meat and Fish</h2>
-                    <div className='flex gap-4 flex-wrap scroll-py-3'>
-                        <ProductItem />
-                        <ProductItem />
-                        <ProductItem />
-                        <ProductItem />
-                        <ProductItem />
-                    </div>
-                </div>
-
-                <div className='mb-8'>
-                    <h2 className='text-lg font-semibold mb-4'>Meat and Fish</h2>
-                    <div className='flex gap-4 flex-wrap scroll-py-3'>
-                        <ProductItem />
-                        <ProductItem />
-                        <ProductItem />
-                        <ProductItem />
-                        <ProductItem />
-                    </div>
-                </div>
-
-                <div className='mb-8'>
-                    <h2 className='text-lg font-semibold mb-4'>Meat and Fish</h2>
-                    <div className='flex gap-4 flex-wrap scroll-py-3'>
-                        <ProductItem />
-                        <ProductItem />
-                        <ProductItem />
-                        <ProductItem />
-                        <ProductItem />
-                    </div>
-                </div>
+                {productsData && productsData.length > 0 && (
+                    productsData.map((item, id) => (
+                        <div className='mb-8' key={id}>
+                            <h2 className='text-lg font-semibold mb-4'>{item.categoryName}</h2>
+                            <div className='flex max-md:justify-center gap-4 flex-wrap scroll-py-3'>
+                                {item.products.map((product, id) => (
+                                    <ProductItem key={id} product={product}/>
+                                ))}
+                            </div>
+                        </div>
+                    ))
+                )}
             </main>
         </section>
     );

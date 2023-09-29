@@ -8,8 +8,17 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { Tooltip } from 'react-tooltip'
 import { NavLink } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { selectCartProducts } from '../../store/features/cartSlice';
 export const Navigation = ({ toggleCart }) => {
 
+  const cartProducts = useSelector(selectCartProducts)
+  const cartTotalProducts = cartProducts.reduce((acc, curr) => {
+    curr.products.forEach(item => {
+      acc = acc + item.quantity;
+    })
+    return acc;
+  }, 0)
   const activeNav = 'border-l-4 border-l-clrOrangePeel transition-all delay-100 px-4'
   const nonActiveNav = 'border-l-4 border-l-transparent hover:border-l-4 hover:border-l-clrOrangePeel transition-all  px-4'
 
@@ -18,7 +27,7 @@ export const Navigation = ({ toggleCart }) => {
 
     <nav className='h-full'>
       <div className=" h-full py-5 flex flex-col justify-center ">
-        
+
         <div className="px-2">
           <img src="./logo.svg" alt="" />
         </div>
@@ -49,7 +58,7 @@ export const Navigation = ({ toggleCart }) => {
         <div className=" text-md relative ">
           <div onClick={toggleCart} className=" cursor-pointer rounded-full py-4 mx-2 my-2 bg-clrOrangePeel grid place-items-center">
             <div className="absolute bg-red-800 text-white rounded-full text-xs px-1 top-3 right-4">
-              3
+              {cartTotalProducts}
             </div>
             <FontAwesomeIcon icon={faCartShopping} color="white" />
           </div>

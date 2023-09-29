@@ -2,30 +2,43 @@ import React, { useEffect, useState } from 'react'
 import { Cart, Navigation } from '../common'
 import { Outlet } from 'react-router-dom'
 import useScreenSize from '../hooks/useScreenSize';
+import { useSelector, useDispatch } from 'react-redux'
+import { selectBackdrop, selectShowCart, uiActions } from '../store/features/uiSlice';
 
 const MOBILE_SIZE = 975
 const AppLayout = () => {
-    const [showCart, setShowCart] = useState(false);
-    const [showBackDrop, setShowBackDrop] = useState(false)
+    // const [showCart, setShowCart] = useState(false);
+    // const [showBackDrop, setShowBackDrop] = useState(false)
     const { screenWidth } = useScreenSize();
 
+    const dispatch = useDispatch();
+    const showCart = useSelector(selectShowCart)
+    const showBackdrop = useSelector(selectBackdrop)
 
     const toggleCart = () => {
         if (screenWidth > MOBILE_SIZE) {
-            setShowCart(true);
-            setShowBackDrop(false)
+            dispatch(uiActions.setShowCart(true))
+            dispatch(uiActions.setCartBackdrop(false))
+            // setShowCart(true);
+            // setShowBackDrop(false)
         } else {
-            setShowCart(!showCart)
-            setShowBackDrop(!showBackDrop)
+            // setShowCart(!showCart)
+            // setShowBackDrop(!showBackDrop)
+            dispatch(uiActions.setShowCart(!showCart))
+            dispatch(uiActions.setCartBackdrop(!showBackdrop))
         }
     }
     useEffect(() => {
         if (screenWidth > MOBILE_SIZE) {
-            setShowCart(true)
-            setShowBackDrop(false)
+            dispatch(uiActions.setShowCart(true))
+            dispatch(uiActions.setCartBackdrop(false))
+            // setShowCart(true)
+            // setShowBackDrop(false)
         } else if (screenWidth < MOBILE_SIZE) {
-            setShowBackDrop(false)
-            setShowCart(false)
+            // setShowBackDrop(false)
+            // setShowCart(false)
+            dispatch(uiActions.setShowCart(false))
+            dispatch(uiActions.setCartBackdrop(false))
         }
     }, [screenWidth])
 
@@ -44,16 +57,18 @@ const AppLayout = () => {
                             <div className='customMainScroll max-h-screen max-w-7xl mx-auto overflow-hidden overflow-y-scroll'>
                                 <Outlet />
                             </div>
-                            {showBackDrop && <div onClick={() => {
-                                setShowBackDrop(false)
-                                setShowCart(false)
+                            {showBackdrop && <div onClick={() => {
+                                // setShowBackDrop(false)
+                                // setShowCart(false)
+                                dispatch(uiActions.setShowCart(false))
+                                dispatch(uiActions.setCartBackdrop(false))
                             }} className='fixed top-0 bottom-0 left-0 right-0 h-full  w-full bg-black/70'></div>}
                         </div>
                     </div>
                     {
                         showCart && screenWidth < MOBILE_SIZE && (
-                            <div className={`max-w-[400px] min-w-[350px]  ml-[65px] fixed right-0 top-0 bottom-0 z-10`}>
-                                <div className=' h-full'>
+                            <div className={`w-[345px] ml-[65px] fixed right-0 top-0 bottom-0 z-10`}>
+                                <div className='bg-white h-full '>
                                     <Cart />
                                 </div>
                             </div>
@@ -64,7 +79,7 @@ const AppLayout = () => {
                         showCart && screenWidth >= MOBILE_SIZE &&
                         (
                             <div className={`w-[400px] fixed top-0 bottom-0 right-0 z-10 `}>
-                                <div className='bg-white h-full'>
+                                <div className='bg-white h-full '>
                                     <Cart />
                                 </div>
                             </div>
