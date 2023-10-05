@@ -52,7 +52,7 @@ const AppLayout = () => {
                         <Navigation toggleCart={() => toggleCart()} />
                     </div>
 
-                    <div className='   '>
+                    <div className='bg-clrShowDrift'>
                         <div className={`ml-[65px] px-[10px] ${screenWidth > MOBILE_SIZE ? 'mr-[400px]' : ''}`}>
                             <div className='customMainScroll max-h-screen max-w-7xl mx-auto overflow-hidden overflow-y-scroll'>
                                 <Outlet />

@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   cartActions,
+  createCart,
+  getCartHistory,
   selectCartListName,
   selectCartProducts,
 } from '../../../store/features/cartSlice';
@@ -11,6 +13,7 @@ import {
   selectIsCartTobeSubmit,
   uiActions,
 } from '../../../store/features/uiSlice';
+
 
 export const CartButton = () => {
   const dispatch = useDispatch();
@@ -69,6 +72,30 @@ export const CartButton = () => {
   const handleSubmitCart = async () => {
     console.log(cartProducts)
     console.log('cartName', tobeUpdatedCartListName)
+    console.log('cartList', cartProducts);
+
+    try {
+      let cartItemList = []
+      let preparedCartProductList = cartProducts.forEach(category => {
+        category.products.forEach(product => {
+          let mappedProduct = { product: product._id, quantity: product.quantity };
+          cartItemList.push(mappedProduct)
+        })
+      })
+
+
+      const payloadData = { cartName: tobeUpdatedCartListName, products: cartItemList, status: 'completed' }
+      console.log(payloadData)
+      const { data } = await dispatch(createCart(payloadData)).unwrap();
+      dispatch(cartActions.resetCart())
+      dispatch(uiActions.setShowCartList())
+      dispatch(uiActions.setCartIsEdit(false))
+      dispatch(uiActions.setIsCarttobeSubmit(false))
+      const { data: res } = await dispatch(getCartHistory()).unwrap();
+
+    } catch (error) {
+      console.log(error)
+    }
   }
 
   return (

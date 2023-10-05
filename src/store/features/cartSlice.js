@@ -1,11 +1,13 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { fetchCartHistory, fetchSingleCartHistory, postCart } from '../../api';
 
 const initialState = {
   status: 'idle',
   error: null,
   cartProducts: [],
   cartListName: '',
-  cartStatus: '',
+  cartHistory: [],
+  cartDetailHistory: {},
 };
 export const cartSlice = createSlice({
   name: 'cart',
@@ -16,7 +18,6 @@ export const cartSlice = createSlice({
     },
     resetCart: (state, action) => {
       state.cartListName = '';
-      state.cartStatus = '';
       state.error = null;
       state.status = 'idle';
       state.cartProducts = [];
@@ -95,8 +96,71 @@ export const cartSlice = createSlice({
       }
     },
   },
-  extraReducers: (builder) => {},
+  extraReducers: (builder) => {
+    builder
+      .addCase(createCart.pending, (state, action) => {})
+      .addCase(createCart.fulfilled, (state, action) => {
+        console.log('extraReducer fullfilled: ', action);
+      })
+      .addCase(createCart.rejected, (state, action) => {
+        console.log('extraReducer error: ', action);
+      })
+      .addCase(getCartHistory.pending, (state, action) => {})
+      .addCase(getCartHistory.fulfilled, (state, action) => {
+        // console.log(action.payload);
+        state.cartHistory = action.payload;
+      })
+      .addCase(getCartHistory.rejected, (state, action) => {})
+      .addCase(getSingleCartHistory.pending, (state, action) => {})
+      .addCase(getSingleCartHistory.fulfilled, (state, action) => {
+     
+        state.cartDetailHistory = action.payload;
+      })
+      .addCase(getSingleCartHistory.rejected, (state, action) => {});
+  },
 });
+
+export const createCart = createAsyncThunk(
+  'cart/createCart',
+  async (formData, thunkAPI) => {
+    try {
+      const { data } = await postCart(formData);
+      console.log(data);
+      return data;
+    } catch (error) {
+      console.log(error);
+      return thunkAPI.rejectWithValue(error?.response?.data?.message);
+    }
+  },
+);
+
+export const getCartHistory = createAsyncThunk(
+  'cart/getHistory',
+  async (_, thunkAPI) => {
+    try {
+      const { data } = await fetchCartHistory();
+      return data;
+    } catch (error) {
+      console.log(error);
+      return thunkAPI.rejectWithValue(error?.response?.data?.message);
+    }
+  },
+);
+
+export const getSingleCartHistory = createAsyncThunk(
+  'cart/getSingleHistory',
+  async (id, thunkAPI) => {
+    try {
+      const { data } = await fetchSingleCartHistory(id);
+      // console.log('fetch single', data);
+      // console.log(data);
+      return data.data;
+    } catch (error) {
+      console.log(error);
+      return thunkAPI.rejectWithValue(error?.response?.data?.message);
+    }
+  },
+);
 
 export const cartReducer = cartSlice.reducer;
 export const cartActions = cartSlice.actions;
@@ -104,3 +168,6 @@ export const cartActions = cartSlice.actions;
 export const selectCartProducts = (state) => state.cart.cartProducts;
 
 export const selectCartListName = (state) => state.cart.cartListName;
+
+export const selectCartHistory = (state) => state.cart.cartHistory;
+export const selectSingleCartHistory = (state) => state.cart.cartDetailHistory;

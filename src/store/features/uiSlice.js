@@ -24,6 +24,12 @@ export const uiSlice = createSlice({
     setCartIsEdit: (state, action) => {
       state.cartIsEdit = action.payload;
     },
+    resetCartStatus: (state, action) => {
+      console.log('ui cart status called');
+      state.cartIsEdit = false;
+      state.IsCarttobeSubmit = false;
+      console.log(state.cartIsEdit,state.IsCarttobeSubmit)
+    },
     toggleCartIsEdit: (state, action) => {
       state.cartIsEdit = !state.cartIsEdit;
     },

@@ -15,13 +15,13 @@ export default {
         clrSliverSand: '#C1C1C4',
         clrDarkGrey: '#34333A',
         clrMalibu: '#56CCF2',
+        clrPearlBush:"#E0E0E0"
       },
       fontFamily: {
         Quicksand: ['Quicksand', 'sans-serif'],
       },
-      content: {
-        'before': 'before',
-        'after': 'after',
+      boxShadow: {
+        custom: '0 0px 15px -8px rgba(0, 0, 0, 0.3)',
       },
     },
   },

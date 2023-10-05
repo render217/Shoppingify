@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { uiActions } from '../../../store/features/uiSlice';
 import { createProduct } from '../../../store/features/productsSlice';
 import { toast } from 'react-toastify';
+import { getCartHistory } from '../../../store/features/cartSlice';
 
 export const CartForm = () => {
     const dispatch = useDispatch();
@@ -36,7 +37,7 @@ export const CartForm = () => {
                 image: '',
                 category: '',
             })
-
+           
         } catch (error) {
             toast.error(error)
         }
